@@ -10,13 +10,22 @@
 <body>
   <div class="container">
     <header>
-      <span class="header-badge">🚀 Continuous Integration Ready</span>
+      <span class="header-badge">⚡ Automated CI/CD Pipeline</span>
       <h1>DevOps Task Tracker</h1>
-      <p class="subtitle">Built with HTML5, Vanilla CSS, JS & Tested with Vitest & GitHub Actions</p>
+      <p class="subtitle">Built with HTML5, Vanilla CSS, JS &amp; Tested with Vitest &amp; GitHub Actions</p>
+      
+      <div class="ci-banner">
+        <span class="status-indicator live"></span>
+        <span>CI Checks: <strong>Automated</strong></span>
+        <span class="banner-separator">•</span>
+        <span>Branch: <strong>Protected</strong></span>
+        <span class="banner-separator">•</span>
+        <span>Vitest Suite: <strong>9 Passed</strong></span>
+      </div>
     </header>
 
     <!-- Stats Panel -->
-    <section class="glass-panel stats-grid">
+    <section class="glass-panel stats-grid" aria-label="Task metrics dashboard">
       <div class="stat-card">
         <div class="label">Total Tasks</div>
         <div class="value" id="stat-total">0</div>
@@ -36,34 +45,35 @@
     </section>
 
     <!-- Task Input Form -->
-    <section class="glass-panel">
-      <form id="add-task-form" class="add-task-form">
+    <section class="glass-panel" aria-label="Task creation section">
+      <form id="add-task-form" class="add-task-form" aria-label="Add task form">
         <input 
           type="text" 
           id="task-title" 
           class="input-field" 
           placeholder="Enter new task name..." 
+          aria-label="Task title"
           required
         >
-        <select id="task-priority" class="select-field">
+        <select id="task-priority" class="select-field" aria-label="Task priority">
           <option value="High">High Priority</option>
           <option value="Medium" selected>Medium Priority</option>
           <option value="Low">Low Priority</option>
         </select>
-        <select id="task-category" class="select-field">
+        <select id="task-category" class="select-field" aria-label="Task category">
           <option value="DevOps">DevOps</option>
           <option value="Frontend">Frontend</option>
           <option value="Backend">Backend</option>
           <option value="Testing">Testing</option>
         </select>
-        <button type="submit" class="btn-primary">+ Add Task</button>
+        <button type="submit" class="btn-primary" aria-label="Add task button">+ Add Task</button>
       </form>
     </section>
 
     <!-- Task List & Filters -->
-    <section class="glass-panel">
+    <section class="glass-panel" aria-label="Task list and controls">
       <div class="controls-bar">
-        <div class="filter-buttons">
+        <div class="filter-buttons" role="group" aria-label="Filter tasks by status">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="active">Active</button>
           <button class="filter-btn" data-filter="completed">Completed</button>
@@ -74,19 +84,21 @@
             id="search-input" 
             class="input-field" 
             placeholder="Search tasks..."
+            aria-label="Search tasks"
             style="max-width: 200px;"
           >
-          <button id="clear-completed-btn" class="btn-secondary" title="Clear all completed tasks">Clear Completed</button>
+          <button id="clear-completed-btn" class="btn-secondary" title="Clear all completed tasks" aria-label="Clear completed tasks">Clear Completed</button>
         </div>
       </div>
 
-      <div id="task-list" class="task-list">
+      <div id="task-list" class="task-list" aria-live="polite">
         <!-- Rendered dynamically -->
       </div>
     </section>
 
     <footer>
-      <p>Automated CI/CD Workflow Workflow • Powered by GitHub Actions & Vitest</p>
+      <p>Automated CI/CD Pipeline • Powered by GitHub Actions &amp; Vitest</p>
+      <p class="footer-subtext">Repository: <a href="https://github.com/dhruv4777/practical" target="_blank" rel="noopener noreferrer">dhruv4777/practical</a></p>
     </footer>
   </div>
 
