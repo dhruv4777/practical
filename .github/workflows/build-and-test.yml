@@ -2,16 +2,13 @@ name: Build and Test HTML/CSS/JS Project
 
 on:
   push:
-    branches:
-      - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   build-and-test:
+    name: Build and Test Project
     runs-on: ubuntu-latest
 
     steps:
