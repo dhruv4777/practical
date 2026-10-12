@@ -120,5 +120,13 @@ filterBtns.forEach(btn => {
   });
 });
 
+const clearCompletedBtn = document.getElementById('clear-completed-btn');
+if (clearCompletedBtn) {
+  clearCompletedBtn.addEventListener('click', () => {
+    manager.clearCompletedTasks();
+    renderTasks();
+  });
+}
+
 // Initial Render
 renderTasks();
