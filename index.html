@@ -68,13 +68,16 @@
           <button class="filter-btn" data-filter="active">Active</button>
           <button class="filter-btn" data-filter="completed">Completed</button>
         </div>
-        <input 
-          type="text" 
-          id="search-input" 
-          class="input-field" 
-          placeholder="Search tasks..."
-          style="max-width: 220px;"
-        >
+        <div class="controls-right">
+          <input 
+            type="text" 
+            id="search-input" 
+            class="input-field" 
+            placeholder="Search tasks..."
+            style="max-width: 200px;"
+          >
+          <button id="clear-completed-btn" class="btn-secondary" title="Clear all completed tasks">Clear Completed</button>
+        </div>
       </div>
 
       <div id="task-list" class="task-list">

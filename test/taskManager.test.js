@@ -65,4 +65,11 @@ describe('TaskManager Unit Tests', () => {
     expect(stats.active).toBe(2);
     expect(stats.completionPercentage).toBe(33);
   });
+
+  it('should clear all completed tasks', () => {
+    const removedCount = taskManager.clearCompletedTasks();
+    expect(removedCount).toBe(1);
+    expect(taskManager.tasks.length).toBe(2);
+    expect(taskManager.tasks.some(t => t.completed)).toBe(false);
+  });
 });

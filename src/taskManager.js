@@ -40,6 +40,12 @@ export class TaskManager {
     return this.tasks.length < initialLength;
   }
 
+  clearCompletedTasks() {
+    const initialLength = this.tasks.length;
+    this.tasks = this.tasks.filter(t => !t.completed);
+    return initialLength - this.tasks.length;
+  }
+
   getFilteredTasks(filter = 'all', searchQuery = '') {
     return this.tasks.filter(task => {
       const matchesFilter =
