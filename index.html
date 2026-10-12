@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sample HTML/CSS/JS Project with automated GitHub Actions CI/CD pipeline.">
+  <title>DevOps Task Tracker | GitHub Actions Sample</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="header-badge">🚀 Continuous Integration Ready</span>
+      <h1>DevOps Task Tracker</h1>
+      <p class="subtitle">Built with HTML5, Vanilla CSS, JS & Tested with Vitest & GitHub Actions</p>
+    </header>
+
+    <!-- Stats Panel -->
+    <section class="glass-panel stats-grid">
+      <div class="stat-card">
+        <div class="label">Total Tasks</div>
+        <div class="value" id="stat-total">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Completed</div>
+        <div class="value" id="stat-completed">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Active</div>
+        <div class="value" id="stat-active">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Completion Rate</div>
+        <div class="value" id="stat-rate">0%</div>
+      </div>
+    </section>
+
+    <!-- Task Input Form -->
+    <section class="glass-panel">
+      <form id="add-task-form" class="add-task-form">
+        <input 
+          type="text" 
+          id="task-title" 
+          class="input-field" 
+          placeholder="Enter new task name..." 
+          required
+        >
+        <select id="task-priority" class="select-field">
+          <option value="High">High Priority</option>
+          <option value="Medium" selected>Medium Priority</option>
+          <option value="Low">Low Priority</option>
+        </select>
+        <select id="task-category" class="select-field">
+          <option value="DevOps">DevOps</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Testing">Testing</option>
+        </select>
+        <button type="submit" class="btn-primary">+ Add Task</button>
+      </form>
+    </section>
+
+    <!-- Task List & Filters -->
+    <section class="glass-panel">
+      <div class="controls-bar">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="input-field" 
+          placeholder="Search tasks..."
+          style="max-width: 220px;"
+        >
+      </div>
+
+      <div id="task-list" class="task-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <footer>
+      <p>Automated CI/CD Workflow Workflow • Powered by GitHub Actions & Vitest</p>
+    </footer>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
