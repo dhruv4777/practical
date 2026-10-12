@@ -2,9 +2,12 @@
 
 An interactive, responsive HTML5 / CSS3 / JavaScript Web Application designed with modern dark glassmorphism styling and automated Continuous Integration (CI) via GitHub Actions.
 
-![GitHub Actions Status](https://img.shields.io/badge/CI-GitHub%20Actions-brightgreen?logo=github-actions)
+![GitHub Actions Status](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-brightgreen?logo=github-actions)
 ![Vite](https://img.shields.io/badge/Bundler-Vite-646CFF?logo=vite)
 ![Vitest](https://img.shields.io/badge/Testing-Vitest-FCC72B?logo=vitest)
+[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub%20Pages-2ea44f?logo=github)](https://dhruv4777.github.io/practical/)
+
+**Live URL**: [https://dhruv4777.github.io/practical/](https://dhruv4777.github.io/practical/)
 
 ---
 
@@ -67,10 +70,16 @@ npm run build
 
 The workflow is defined in `.github/workflows/build-and-test.yml`:
 
-- **Triggers**: Executed on `push` and `pull_request` to `main` or `master` branches.
-- **Steps**:
-  1. Checks out repository source code (`actions/checkout@v4`).
-  2. Sets up Node.js v20 with npm caching (`actions/setup-node@v4`).
-  3. Installs clean dependencies (`npm ci`).
-  4. Executes unit tests (`npm test`).
-  5. Verifies production bundle creation (`npm run build`).
+- **Triggers**: Executed on `push` to any branch and `pull_request` targeting `main`.
+- **Jobs**:
+  1. **Build and Test (`build-and-test`)**:
+     - Checks out repository source code (`actions/checkout@v4`).
+     - Sets up Node.js v20 with npm caching (`actions/setup-node@v4`).
+     - Installs dependencies (`npm ci`).
+     - Runs Vitest unit tests (`npm test`).
+     - Builds production bundle (`npm run build`).
+     - Configures and uploads Pages artifact (`actions/upload-pages-artifact@v3`).
+  2. **Deploy to GitHub Pages (`deploy`)**:
+     - Runs only when commits are pushed/merged into `main`.
+     - Deploys the production artifact to GitHub Pages (`actions/deploy-pages@v4`).
+     - Exposes the deployment URL at [dhruv4777.github.io/practical](https://dhruv4777.github.io/practical/).
